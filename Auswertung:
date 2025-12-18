@@ -1,1 +1,27 @@
+Sys Unischheiten: Höhe = np.sqrt(1/12+0.7**2) = 0.76 mm, Zeit = 0.5/sqrt(3) ms Zähler, Zeit = 0.05/sqrt(3) ms Osciloscop 
+Std_zeit_stat = std(werte)/sqrt(N)
+Zähler
+Höhe:      Zeit:    Std_zeit_stat:    Std_zeit_gesamt:
+9.9 cm     143.4 ms 0.16 ms           0.33 ms 
+14.9 cm    174.9 ms 0.10 ms           0.31 ms
+19.9 cm    201.6 ms 0.16 ms           0.33 ms 
+24.9 cm    225.0 ms 0.0 ms            0.29 ms 
+34.9 cm    266.5 ms 0.17 ms           0.34 ms
+44.9 cm    302.0 ms 0.0 ms            0.29 ms
+54.9 cm    334.0 ms 0.0 ms            0.29 ms
+64.9 cm    363.1 ms 0.1 ms            0.31 ms 
+74.9 cm    390.0 ms 0.0 ms            0.29 ms 
+84.9 cm    415.9 ms 0.1 ms            0.31 ms 
 
+Osci
+Höhe:      Zeit:    Std_zeit_stat:    Std_zeit_gesamt:
+9.9 cm     142.62 ms 0.10 ms          0.1 ms 
+14.9 cm    173.94 ms 0.22 ms          0.22 ms
+19.9 cm    202.41 ms 0.15 ms          0.15 ms
+24.9 cm    225.58 ms 0.1 ms           0.11 ms
+34.9 cm    266.88 ms 0.30 ms          0.30 ms
+44.9 cm    302.7 ms  0.35 ms          0.35 ms
+54.9 cm    335.19 ms 0.20 ms          0.20 ms
+64.9 cm    363.71 ms 0.14 ms          0.14 ms
+74.9 cm    390.9 ms  0.32 ms          0.32 ms
+84.9 cm    415.89 ms 0.22 ms          0.22 ms
