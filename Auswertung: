@@ -1,5 +1,6 @@
 Sys Unischheiten: Höhe = np.sqrt(1/12+0.7**2) = 0.76 mm, Zeit = 0.5/sqrt(3) ms Zähler, Zeit = 0.05/sqrt(3) ms Osciloscop 
 Std_zeit_stat = std(werte)/sqrt(N)
+
 Zähler
 Höhe:      Zeit:    Std_zeit_stat:    Std_zeit_gesamt:
 9.9 cm     143.4 ms 0.16 ms           0.33 ms 
@@ -26,8 +27,14 @@ Höhe:      Zeit:    Std_zeit_stat:    Std_zeit_gesamt:
 74.9 cm    390.9 ms  0.32 ms          0.32 ms
 84.9 cm    415.89 ms 0.22 ms          0.22 ms
 
+Zähler:
+g = 4.82400 ± 0.02721
+v = 0.05896 ± 0.01488
+s = -0.00878 ± 0.00186
 
-
+Chi^2 = 1.683
+Degrees of freedom = 7
+Chi^2 / dof = 0.240
 
 
 Osci:
@@ -35,7 +42,6 @@ g = 4.95543 ± 0.04960
 v = -0.02583 ± 0.02722
 s = 0.00232 ± 0.00341
 
-Goodness of fit:
 Chi^2 = 7.469
 Degrees of freedom = 7
 Chi^2 / dof = 1.067
