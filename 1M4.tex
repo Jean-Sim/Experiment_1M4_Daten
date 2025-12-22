@@ -1,0 +1,264 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{siunitx}
+\sisetup{locale = DE}
+\usepackage{geometry}
+\usepackage{float}
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\section{Bestimmung der Fallbeschleunigung}
+
+Zur Bestimmung der Fallbeschleunigung $g$ wurde mithilfe eines Zeitmessers sowie eines Oszilloskops die Falldauer einer Kugel aus verschiedenen Höhen aufgezeichnet. Die verwendeten Höhen betrugen
+$9{,}9\,\mathrm{cm}$, $14{,}9\,\mathrm{cm}$, $19{,}9\,\mathrm{cm}$, $24{,}9\,\mathrm{cm}$, $34{,}9\,\mathrm{cm}$, $44{,}9\,\mathrm{cm}$, $54{,}9\,\mathrm{cm}$, $64{,}9\,\mathrm{cm}$, $74{,}9\,\mathrm{cm}$ und $84{,}9\,\mathrm{cm}$.
+Für jede der zehn unterschiedlichen Höhen wurden jeweils zehn Zeitmessungen durchgeführt. Aus diesen Messungen wurden anschließend der Mittelwert sowie dessen Unsicherheit bestimmt. Diese Größen bilden die Grundlage des Datensatzes, auf den im Folgenden ein Polynom zweiten Grades angepasst wird.  
+
+Die Messungen mit Zeitmesser und Oszilloskop erfolgten simultan und liefern zwei unterschiedliche Werte für $g$. Dabei ist zu erwarten, dass die Messungen mit dem Oszilloskop eine deutlich höhere Präzision aufweisen.
+
+\subsection{Bestimmung der Zeitmittelwerte und statistischen Unsicherheiten}
+
+Für jede Höhe $s_n$ wurden zehn Zeitmesswerte $t_x$ aufgenommen. Zur Reduktion zufälliger statistischer Schwankungen wird für jede Höhe der Mittelwert gebildet und mithilfe der Standardabweichung die statistische Unsicherheit abgeschätzt:
+\[
+\overline{t}_n = \frac{1}{10}\sum_{x=1}^{10} t_x
+\]
+\[
+\sigma_{t_n} = \sqrt{\frac{1}{9}\sum_{x=1}^{10}\left(t_x - \overline{t}_n\right)^2}
+\]
+\[
+\sigma_{\overline{t}_n,\mathrm{stat}} = \frac{\sigma_{t_n}}{\sqrt{10}}
+\]
+Dabei bezeichnet $\overline{t}_n$ den Zeitmittelwert, der später für die Anpassung verwendet wird, und $\sigma_{\overline{t}_n,\mathrm{stat}}$ die statistische Unsicherheit dieses Mittelwertes.
+
+Im Folgenden sind die Ergebnisse der Messreihen mit Zeitmesser und Oszilloskop tabellarisch dargestellt.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c}
+\hline
+$n$ & $h\,(\mathrm{cm})$ & $\bar{t}\,(\mathrm{ms})$ & $\sigma_{\bar{t},\text{stat}}\,(\mathrm{ms})$ \\
+\hline
+1 & 9.9 & 143.4 & 0.16 \\
+2 & 14.9 & 174.9 & 0.10 \\
+3 & 19.9 & 201.6 & 0.16 \\
+4 & 24.9 & 225.0 & 0.00 \\
+5 & 34.9 & 266.5 & 0.17 \\
+6 & 44.9 & 302.0 & 0.00 \\
+7 & 54.9 & 334.0 & 0.00 \\
+8 & 64.9 & 363.1 & 0.10 \\
+9 & 74.9 & 390.0 & 0.00 \\
+10 & 84.9 & 415.9 & 0.10 \\
+\hline
+\end{tabular}
+\caption{Ergebnisse Mittelwerte und statistische Fehler der 10 Messreihen mit Zeitmesser}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c}
+\hline
+$n$ & $h\,(\mathrm{cm})$ & $\bar{t}\,(\mathrm{ms})$ & $\sigma_{\bar{t},\text{stat}}\,(\mathrm{ms})$ \\
+\hline
+1 & 9.9 & 142.62 & 0.10 \\
+2 & 14.9 & 173.94 & 0.22 \\
+3 & 19.9 & 202.41 & 0.15 \\
+4 & 24.9 & 225.58 & 0.10 \\
+5 & 34.9 & 266.88 & 0.30 \\
+6 & 44.9 & 302.70 & 0.35 \\
+7 & 54.9 & 335.19 & 0.20 \\
+8 & 64.9 & 363.71 & 0.14 \\
+9 & 74.9 & 390.90 & 0.32 \\
+10 & 84.9 & 415.89 & 0.22 \\
+\hline
+\end{tabular}
+\caption{Ergebnisse der 10 Messreihen mit Oszilloskop}
+\end{table}
+
+Auffällig ist, dass bei einigen Messreihen mit dem Zeitmesser die berechnete statistische Unsicherheit des Mittelwertes gleich null ist. Dies ist nicht darauf zurückzuführen, dass die Unsicherheit tatsächlich verschwindet, sondern darauf, dass die Zeitauflösung des Zeitmessers $0{,}5\,\mathrm{ms}$ beträgt und die statistische Streuung kleiner ist als diese Auflösung. In solchen Fällen ist der statistische Fehler experimentell nicht auflösbar und wird im Folgenden vernachlässigt.
+
+\subsection{Unsicherheit der Höhenmessung}
+
+Die Höhe wurde mit einem Maßband der EG-Klasse~2 bestimmt und besitzt daher eine Toleranz von $\pm 0{,}7\,\mathrm{mm}$. Unter der Annahme einer Gleichverteilung wird dieser Beitrag mit dem Faktor $1/\sqrt{3}$ berücksichtigt. Zusätzlich wird von einer Ablesegenauigkeit von $1\,\mathrm{mm}$ ausgegangen, was unter der Annahme einer Gleichverteilung einem Fehlerbeitrag von $1/\sqrt{12}\,\mathrm{mm}$ entspricht.  
+
+Die kombinierte Unsicherheit der Höhe ergibt sich somit zu
+\[
+\sigma_s = \sqrt{\left(\frac{1}{\sqrt{12}}\right)^2 + \left(\frac{0{,}7}{\sqrt{3}}\right)^2}
+= 0{,}50\,\mathrm{mm}.
+\]
+
+\subsection{Gesamtunsicherheit der Zeitmessung}
+
+Zusätzlich zur statistischen Unsicherheit muss die durch die Zeitauflösung der Messmethoden verursachte Auflösungsunsicherheit berücksichtigt werden. Diese beträgt für den Zeitmesser $\pm 0{,}5\,\mathrm{ms}$ und für das Oszilloskop um einen Faktor~10 geringer $\pm 0{,}05\,\mathrm{ms}$. Unter der Annahme einer Gleichverteilung wird auch hier durch $\sqrt{3}$ dividiert.
+
+Damit ergibt sich die Gesamtunsicherheit der Zeitmittelwerte zu:
+
+Für den Zeitmesser:
+\[
+\sigma_{\overline{t}_n,\mathrm{gesamt}} =
+\sqrt{\sigma_{\overline{t}_n,\mathrm{stat}}^2 +
+\left(\frac{0{,}5}{\sqrt{3}}\right)^2}\,\mathrm{ms}.
+\]
+
+Für das Oszilloskop:
+\[
+\sigma_{\overline{t}_n,\mathrm{gesamt}} =
+\sqrt{\sigma_{\overline{t}_n,\mathrm{stat}}^2 +
+\left(\frac{0{,}05}{\sqrt{3}}\right)^2}\,\mathrm{ms}.
+\]
+
+Die finalen Ergebnisse der Messreihen mit Zeitmesser und Oszilloskop einschließlich der Gesamtunsicherheiten sind nachfolgend tabellarisch dargestellt.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c}
+\hline
+$n$ & $h\,(\mathrm{cm})$ & $\bar{t}\,(\mathrm{ms})$ & $\sigma_{\bar{t},\text{stat}}\,(\mathrm{ms})$ & $\sigma_{\bar{t},\text{gesamt}}\,(\mathrm{ms})$ \\
+\hline
+1 & 9.9 & 143.4 & 0.16 & 0.33 \\
+2 & 14.9 & 174.9 & 0.10 & 0.31 \\
+3 & 19.9 & 201.6 & 0.16 & 0.33 \\
+4 & 24.9 & 225.0 & 0.00 & 0.29 \\
+5 & 34.9 & 266.5 & 0.17 & 0.34 \\
+6 & 44.9 & 302.0 & 0.00 & 0.29 \\
+7 & 54.9 & 334.0 & 0.00 & 0.29 \\
+8 & 64.9 & 363.1 & 0.10 & 0.31 \\
+9 & 74.9 & 390.0 & 0.00 & 0.29 \\
+10 & 84.9 & 415.9 & 0.10 & 0.31 \\
+\hline
+\end{tabular}
+\caption{Mittelwerte und Gesamtfehler der 10 Messreihen mit Zeitmesser}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c c c c c}
+\hline
+$n$ & $h\,(\mathrm{cm})$ & $\bar{t}\,(\mathrm{ms})$ & $\sigma_{\bar{t},\text{stat}}\,(\mathrm{ms})$ & $\sigma_{\bar{t},\text{gesamt}}\,(\mathrm{ms})$ \\
+\hline
+1 & 9.9 & 142.62 & 0.10 & 0.10 \\
+2 & 14.9 & 173.94 & 0.22 & 0.22 \\
+3 & 19.9 & 202.41 & 0.15 & 0.15 \\
+4 & 24.9 & 225.58 & 0.10 & 0.11 \\
+5 & 34.9 & 266.88 & 0.30 & 0.30 \\
+6 & 44.9 & 302.70 & 0.35 & 0.35 \\
+7 & 54.9 & 335.19 & 0.20 & 0.20 \\
+8 & 64.9 & 363.71 & 0.14 & 0.14 \\
+9 & 74.9 & 390.90 & 0.32 & 0.32 \\
+10 & 84.9 & 415.89 & 0.22 & 0.22 \\
+\hline
+\end{tabular}
+\caption{Mittelwerte und Gesamtfehler der 10 Messreihen mit Oszilloskop}
+\end{table}
+
+\subsection{Anpassung der Daten}
+
+Da sowohl in der Zeit als auch in der Distanz Messunsicherheiten vorliegen, ist die Methode der kleinsten Quadrate nicht geeignet. Stattdessen wird eine Orthogonal Distance Regression (ODR) verwendet, konkret das Modul \texttt{scipy.odr} (siehe \texttt{mod\_433991\_454624\_1M4\_odr\_fit\_1.py} und \texttt{mod\_433991\_454624\_1M4\_odr\_fit\_2.py}).  
+
+Dabei wird ein Polynom zweiten Grades der Form
+\[
+f(x) = a x^2 + b x + c
+\]
+an die Daten angepasst.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{figure_plot_1.png}
+\caption{Datenpunkte und Anpassung an die Zeitmesserwerte sowie orthogonale Residuen. Angepasste Funktion: $f(x)=a x^2 + b x + c$, $a = 4{,}826 \pm 0{,}026\,\mathrm{m/s^2}$, $b = 0{,}058 \pm 0{,}014\,\mathrm{m/s}$, $c = -0{,}0087 \pm 0{,}0017\,\mathrm{m}$.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{residuen_richtung_1.png}
+\caption{Richtungsabhängige Residuen der Anpassung an die Zeitmesserwerte. $\chi^2 = 2{,}092$, $\chi^2/\mathrm{dof} = 0{,}299$.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{figure_plot_2.png}
+\caption{Datenpunkte und Anpassung an die Oszilloskopwerte sowie orthogonale Residuen. Angepasste Funktion: $f(x)=a x^2 + b x + c$, $a = 4{,}95 \pm 0{,}051\,\mathrm{m/s^2}$, $b = -0{,}024 \pm 0{,}027\,\mathrm{m/s}$, $c = 0{,}0021 \pm 0{,}0034\,\mathrm{m}$.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{residuen_richtung_2.png}
+\caption{Richtungsabhängige Residuen der Anpassung an die Oszilloskopwerte. $\chi^2 = 13{,}013$, $\chi^2/\mathrm{dof} = 1{,}859$.}
+\end{figure}
+
+Die Anpassung an die Zeitmesserwerte liefert ein sehr kleines $\chi^2/\mathrm{dof}=0{,}299$, was auf eine Überschätzung der angenommenen zufälligen Unsicherheiten oder auf Korrelationen der Messfehler hindeuten kann. Die Anpassung ergibt zudem eine Anfangsgeschwindigkeit von $0{,}058 \pm 0{,}014\,\mathrm{m/s}$ sowie eine räumliche Verschiebung von $-0{,}0087 \pm 0{,}0017\,\mathrm{m}$. Beide Werte liegen in einem akzeptablen Bereich, da kleine Anfangsgeschwindigkeiten und Verschiebungen nicht ausgeschlossen werden können und das Ergebnis nur geringfügig verfälschen.  
+
+Im orthogonalen Residuum ist ein wellenförmiges Muster erkennbar, was üblicherweise darauf hindeutet, dass das verwendete Modell nicht vollständig ausreichend ist und beispielsweise ein Polynom höheren Grades hätte verwendet werden müssen. Unter der Grundannahme eines vernachlässigbaren Luftwiderstands wurde jedoch ein Polynom zweiten Grades gewählt. Angesichts des orthogonalen Residuums sollte diese Annahme gegebenenfalls überdacht werden. Zusammenfassend ist die Anpassung mit $\chi^2/\mathrm{dof}=0{,}299$ und dem erkennbaren Muster im orthogonalen Residuum nicht optimal, aber in Anbetracht der geringen Freiheitsgrade ausreichend und nicht statistisch unmöglich. Das Ergebnis sollte jedoch mit entsprechender Skepsis betrachtet werden.
+
+Es gilt:
+\[
+a = \frac{1}{2} g = 4{,}826 \pm 0{,}026\,\mathrm{m/s^2}.
+\]
+
+Die Anpassung an die Oszilloskopmesswerte ergibt ein größeres $\chi^2/\mathrm{dof}=1{,}859$, was auf eine mögliche Unterschätzung der Fehler hindeutet. Die resultierende Anfangsgeschwindigkeit beträgt $-0{,}024 \pm 0{,}027\,\mathrm{m/s}$ und die räumliche Verschiebung $0{,}0021 \pm 0{,}0034\,\mathrm{m}$. Auch diese Werte liegen in einem akzeptablen Bereich. Im Gegensatz zur Zeitmesseranpassung ist hier kein vergleichbares Muster in den orthogonalen Residuen erkennbar. In Anbetracht der simultanen Messungen spricht dies dafür, dass das zuvor beobachtete Muster nicht auf ein unzureichendes Modell zurückzuführen ist, sondern durch statistisches Rauschen der Zeitmessmethode verursacht wurde. Insgesamt ist diese zweite Anpassung deutlich besser und im Rahmen der geringen Anzahl an Datenpunkten und Freiheitsgraden plausibel.
+
+Es gilt:
+\[
+a = \frac{1}{2} g = 4{,}953 \pm 0{,}051\,\mathrm{m/s^2}.
+\]
+
+\subsection{Bestimmung von $g$ und Vergleich mit Literaturwerten}
+
+Damit ergeben sich für die Fallbeschleunigung aus den beiden Messmethoden:
+\[
+g_{\mathrm{zm}} = 2a = 9{,}652 \pm 0{,}052\,\mathrm{m/s^2},
+\]
+\[
+g_{\mathrm{osci}} = 2a = 9{,}906 \pm 0{,}12\,\mathrm{m/s^2}.
+\]
+
+Der normierte Abstand der beiden Ergebnisse beträgt:
+\[
+n_g = \frac{|g_{\mathrm{zm}} - g_{\mathrm{osci}}|}{\sqrt{\sigma_{g_{\mathrm{zm}}}^2 + \sigma_{g_{\mathrm{osci}}}^2}} = 1{,}94.
+\]
+
+Der Sigma-Abstand liegt somit noch im akzeptablen Bereich für die Bildung eines gewichteten Mittelwertes. Allerdings deutet die schlechte Güte der Zeitmesseranpassung auf relevante systematische Unterschiede hin, sodass der gewichtete Mittelwert nur mit eingeschränktem Vertrauen bestimmt wird.
+
+Der gewichtete Mittelwert ergibt sich zu:
+\[
+g_{\mathrm{final}} =
+\frac{g_{\mathrm{zm}}/\sigma_{g_{\mathrm{zm}}}^2 + g_{\mathrm{osci}}/\sigma_{g_{\mathrm{osci}}}^2}
+{1/\sigma_{g_{\mathrm{zm}}}^2 + 1/\sigma_{g_{\mathrm{osci}}}^2}
+= 9{,}693\,\mathrm{m/s^2},
+\]
+\[
+\sigma_{g,\mathrm{final}} =
+\sqrt{\frac{1}{1/\sigma_{g_{\mathrm{zm}}}^2 + 1/\sigma_{g_{\mathrm{osci}}}^2}}
+= 0{,}048\,\mathrm{m/s^2}.
+\]
+
+Damit ergibt sich:
+\[
+g_{\mathrm{final}} = 9{,}693 \pm 0{,}048\,\mathrm{m/s^2}.
+\]
+
+Zum Vergleich wird der Literaturwert der BKG (DHSN2016) für den Messort (Breite $50{,}7811^\circ$, Länge $6{,}0496^\circ$, Höhe $\approx 200\,\mathrm{m}$) herangezogen:
+\[
+g_{\mathrm{BKG}} = 9{,}810883\,\mathrm{m/s^2}.
+\]
+
+Der normierte Abstand beträgt:
+\[
+\frac{|g_{\mathrm{final}} - g_{\mathrm{BKG}}|}{\sigma_{g,\mathrm{final}}} = 2{,}46.
+\]
+
+Das Ergebnis stimmt grob mit dem Literaturwert überein, zeigt jedoch eine statistisch signifikante Abweichung. Diese ist vermutlich hauptsächlich auf die geringe Güte der Zeitmesseranpassung zurückzuführen.
+
+Wird ausschließlich das Ergebnis der Oszilloskopanpassung betrachtet, so ergibt sich:
+\[
+\frac{|g_{\mathrm{osci}} - g_{\mathrm{BKG}}|}{\sigma_{g_{\mathrm{osci}}}} = 0{,}79.
+\]
+
+Dieses Resultat stimmt sehr gut mit dem Literaturwert überein, was darauf hindeutet, dass das Einbeziehen der Zeitmessermessungen die Auswertung verfälscht. Die zuvor geäußerte Skepsis gegenüber der Zeitmesseranpassung ist somit gerechtfertigt. In Anbetracht dieser Tatsachen ist $g_{\mathrm{osci}}$ als wesentlich verlässlicher als $g_{\mathrm{zm}}$ und der daraus gebildete gewichtete Mittelwert anzusehen.
+
+\end{document}  
